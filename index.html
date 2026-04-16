@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAIANE — Sistema de Acompanhamento Individualizado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --azul: #1A3660;
+      --azul-medio: #2756A0;
+      --dourado: #D4972A;
+      --dourado-claro: #F0B847;
+      --creme: #FDF8F0;
+      --cinza: #6B7280;
+      --branco: #FFFFFF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--azul);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 32px 24px 0;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(212,151,42,0.15);
+      border: 1px solid var(--dourado);
+      color: var(--dourado-claro);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px 60px;
+    }
+    .hero-inner {
+      max-width: 680px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--branco);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 span {
+      color: var(--dourado-claro);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* FORM CARD */
+    .form-card {
+      background: var(--branco);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+      text-align: left;
+    }
+    .form-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--azul);
+      margin-bottom: 8px;
+    }
+    .form-card p {
+      font-size: 0.9rem;
+      color: var(--cinza);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--azul);
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: 'DM Sans', sans-serif;
+      color: #111;
+      transition: border-color 0.2s;
+      background: #FAFAFA;
+    }
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--azul-medio);
+      background: var(--branco);
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--dourado) 0%, var(--dourado-claro) 100%);
+      color: var(--azul);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(212,151,42,0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212,151,42,0.5);
+    }
+    .privacidade {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--cinza);
+      margin-top: 14px;
+    }
+
+    /* PROVA SOCIAL */
+    .social-proof {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--dourado-claro);
+      font-weight: 700;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.5px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+    }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+
+    /* DECORATIVE */
+    .deco-ring {
+      position: fixed;
+      border-radius: 50%;
+      border: 1px solid rgba(212,151,42,0.08);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .deco-ring-1 { width: 600px; height: 600px; top: -200px; right: -200px; }
+    .deco-ring-2 { width: 400px; height: 400px; bottom: -100px; left: -150px; }
+    .hero, header, .social-proof { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+
+  <div class="deco-ring deco-ring-1"></div>
+  <div class="deco-ring deco-ring-2"></div>
+
+  <header>
+    <div class="badge">🎓 Para Professores e Secretarias Municipais</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Acompanhe cada aluno com <span>NEE de forma organizada,</span> documentada e eficaz</h1>
+      <p>Receba gratuitamente o guia completo sobre o Sistema de Acompanhamento Individualizado e descubra como transformar o atendimento inclusivo na sua escola ou rede municipal.</p>
+
+      <div class="form-card">
+        <h2>Quero receber o material gratuito</h2>
+        <p>Preencha os dados abaixo e receba no seu e-mail agora mesmo.</p>
+        <form id="captureForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Seu nome completo</label>
+            <input type="text" placeholder="Ex: Ana Paula Ferreira" required />
+          </div>
+          <div class="form-group">
+            <label>Seu melhor e-mail</label>
+            <input type="email" placeholder="seuemail@escola.edu.br" required />
+          </div>
+          <div class="form-group">
+            <label>Você é…</label>
+            <select required>
+              <option value="">Selecione seu perfil</option>
+              <option>Professor(a) da rede pública</option>
+              <option>Coordenador(a) pedagógico(a)</option>
+              <option>Gestor(a) de Secretaria Municipal</option>
+              <option>Psicopedagogo(a) / Especialista</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">
+            ✉️ &nbsp; Enviar material gratuito agora
+          </button>
+          <p class="privacidade">🔒 Seus dados estão seguros. Sem spam, sem julgamento.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="social-proof">
+    <div class="stat">
+      <div class="stat-num">+2.400</div>
+      <div class="stat-label">Professores atendidos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">87</div>
+      <div class="stat-label">Municípios impactados</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Alinhado à LBI e LDBEN</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 SAIANE · <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      // Aqui você integra com sua ferramenta de e-mail (MailerLite, ActiveCampaign, etc.)
+      // Por enquanto, redireciona para a página de vendas
+      window.location.href = 'vendas.html';
+    }
+  </script>
+</body>
+</html>

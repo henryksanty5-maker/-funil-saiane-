@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parabéns! Seu acesso foi confirmado — SAIANE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --azul: #1A3660;
+      --verde: #2D7A4F;
+      --verde-claro: #E8F5EE;
+      --dourado: #D4972A;
+      --dourado-claro: #F0B847;
+      --creme: #FDF8F0;
+      --cinza: #6B7280;
+      --branco: #FFFFFF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--azul);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    .confetti {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none; overflow: hidden; z-index: 0;
+    }
+    .confetti-piece {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-radius: 2px;
+      animation: fall linear forwards;
+      top: -20px;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    .card {
+      background: var(--branco);
+      border-radius: 24px;
+      max-width: 600px;
+      width: 100%;
+      padding: 56px 48px;
+      text-align: center;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+      position: relative;
+      z-index: 1;
+      animation: slideUp 0.6s ease forwards;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .check-circle {
+      width: 80px; height: 80px;
+      background: var(--verde-claro);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2.2rem;
+      animation: pop 0.5s 0.4s both;
+    }
+    @keyframes pop {
+      0% { transform: scale(0); }
+      70% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .tag-verde {
+      display: inline-block;
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--azul);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+    h1 span { color: var(--verde); }
+    p.intro {
+      font-size: 1rem; color: var(--cinza); line-height: 1.7; margin-bottom: 36px;
+    }
+
+    .steps {
+      background: var(--creme);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .steps h3 {
+      font-size: 0.85rem; font-weight: 700; color: var(--azul);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .step {
+      display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start;
+    }
+    .step-num {
+      background: var(--azul);
+      color: white;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; flex-shrink: 0;
+    }
+    .step-text strong { display: block; font-size: 0.9rem; color: var(--azul); margin-bottom: 2px; }
+    .step-text span { font-size: 0.83rem; color: var(--cinza); }
+
+    .bonus-box {
+      border: 2px solid var(--dourado);
+      border-radius: 14px;
+      padding: 20px 24px;
+      text-align: left;
+      margin-bottom: 28px;
+    }
+    .bonus-box h3 {
+      font-size: 0.78rem; font-weight: 700; color: var(--dourado); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .bonus-box p { font-size: 0.88rem; color: var(--cinza); line-height: 1.6; }
+
+    .btn-wpp {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: #25D366;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: transform 0.15s;
+    }
+    .btn-wpp:hover { transform: translateY(-2px); }
+
+    footer {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+      margin-top: 24px;
+      text-align: center;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confetti" id="confetti"></div>
+
+  <div class="card">
+    <div class="check-circle">✓</div>
+    <div class="tag-verde">Compra confirmada</div>
+    <h1>Parabéns! <span>Seu acesso ao SAIANE está confirmado.</span></h1>
+    <p class="intro">Você acaba de dar um passo enorme para transformar o acompanhamento dos seus alunos com necessidades especiais. Agora é hora de começar!</p>
+
+    <div class="steps">
+      <h3>Seus próximos passos</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <strong>Verifique seu e-mail</strong>
+          <span>O acesso completo foi enviado para o e-mail que você usou na compra. Pode demorar até 5 minutos.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>Acesse a área de membros</strong>
+          <span>Clique no link do e-mail para acessar todos os materiais do SAIANE na plataforma Kiwify.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <strong>Comece pela Ficha de Mapeamento</strong>
+          <span>Sugerimos começar com o módulo 1 — em 1 hora você já terá o primeiro aluno mapeado.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-box">
+      <h3>🎁 Bônus especial para quem comprou hoje</h3>
+      <p>Você vai receber também o <strong>Guia de Comunicação com Famílias em Situações Difíceis</strong> — um bônus exclusivo que será enviado no seu e-mail nas próximas horas.</p>
+    </div>
+
+    <!-- SUBSTITUA PELO SEU LINK DO GRUPO/WHATSAPP -->
+    <a href="https://chat.whatsapp.com/SEU-GRUPO-AQUI" class="btn-wpp" target="_blank">
+      💬 Entrar no grupo de suporte no WhatsApp
+    </a>
+    <p style="font-size:0.78rem; color:var(--cinza); text-align:center;">Dúvidas? Fale com a gente pelo WhatsApp. Respondemos em até 24h.</p>
+  </div>
+
+  <footer>
+    © 2025 SAIANE · Todos os direitos reservados
+  </footer>
+
+  <script>
+    // Confetti animation
+    const confettiEl = document.getElementById('confetti');
+    const colors = ['#D4972A','#F0B847','#2756A0','#2D7A4F','#E8B84B','#3B72C4'];
+    for (let i = 0; i < 60; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.style.cssText = `
+        left: ${Math.random() * 100}%;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        width: ${6 + Math.random() * 8}px;
+        height: ${6 + Math.random() * 8}px;
+        animation-duration: ${2 + Math.random() * 3}s;
+        animation-delay: ${Math.random() * 2}s;
+        border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+      `;
+      confettiEl.appendChild(el);
+    }
+  </script>
+  <script>
+    // Redireciona para upsell após 4 segundos
+    // Remova ou ajuste se preferir não redirecionar automaticamente
+    setTimeout(() => {
+      window.location.href = 'upsell.html';
+    }, 4000);
+  </script>
+</body>
+</html>

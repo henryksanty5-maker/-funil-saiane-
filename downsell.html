@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Última chance — Oferta especial SAIANE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --azul:#1A3660; --azul2:#2756A0; --dourado:#D4972A; --dourado-claro:#F0B847;
+      --verde:#2D7A4F; --verde-claro:#E8F5EE; --creme:#FDF8F0;
+      --cinza:#6B7280; --cinza-claro:#F3F4F6; --branco:#FFFFFF; --texto:#111827;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;color:var(--texto);background:var(--branco);}
+
+    .topo{background:linear-gradient(135deg,var(--azul2) 0%,var(--azul) 100%);
+      padding:8px 24px;text-align:center;}
+    .topo p{color:rgba(255,255,255,0.7);font-size:0.8rem;}
+
+    .hero{padding:56px 24px 40px;text-align:center;background:var(--creme);
+      border-bottom:1px solid #E8E0D0;}
+    .hero-tag{display:inline-block;background:#FEF3E8;border:1px solid #FDBA74;
+      color:#C2410C;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+      padding:6px 18px;border-radius:100px;margin-bottom:20px;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);
+      color:var(--azul);line-height:1.25;max-width:640px;margin:0 auto 16px;}
+    .hero h1 em{color:var(--dourado);font-style:normal;}
+    .hero p{font-size:1rem;color:var(--cinza);max-width:520px;margin:0 auto;line-height:1.7;}
+
+    .main{max-width:720px;margin:0 auto;padding:48px 24px;}
+
+    .entendemos{background:var(--azul);border-radius:16px;padding:28px 32px;margin-bottom:36px;color:var(--branco);}
+    .entendemos h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:12px;color:var(--dourado-claro);}
+    .entendemos p{font-size:0.92rem;line-height:1.7;color:rgba(255,255,255,0.8);}
+
+    .oferta-ds{background:var(--branco);border:2px solid var(--dourado);border-radius:20px;
+      padding:36px 32px;text-align:center;margin-bottom:36px;
+      box-shadow:0 8px 40px rgba(212,151,42,0.12);}
+    .ds-tag{display:inline-block;background:#FEF7E6;border:1px solid #D4972A;
+      color:#92400E;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+      padding:5px 14px;border-radius:100px;margin-bottom:16px;}
+    .oferta-ds h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--azul);margin-bottom:20px;}
+
+    .itens-ds{text-align:left;margin-bottom:24px;}
+    .item-ds{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;
+      background:var(--cinza-claro);border-radius:12px;padding:14px 16px;}
+    .item-ds-icon{font-size:1.4rem;flex-shrink:0;}
+    .item-ds strong{display:block;font-size:0.9rem;font-weight:700;color:var(--azul);margin-bottom:2px;}
+    .item-ds span{font-size:0.82rem;color:var(--cinza);line-height:1.5;}
+
+    .preco-de-ds{font-size:0.9rem;color:#9CA3AF;text-decoration:line-through;margin-bottom:4px;}
+    .preco-por-ds{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;
+      color:var(--azul);line-height:1;margin-bottom:4px;}
+    .preco-label-ds{font-size:0.82rem;color:var(--cinza);margin-bottom:24px;}
+
+    .btn-ds{display:block;background:linear-gradient(135deg,var(--dourado) 0%,var(--dourado-claro) 100%);
+      color:var(--azul);font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;
+      padding:16px 28px;border-radius:12px;text-decoration:none;
+      box-shadow:0 4px 20px rgba(212,151,42,0.35);margin-bottom:12px;
+      transition:transform 0.15s;}
+    .btn-ds:hover{transform:translateY(-2px);}
+    .btn-nao-ds{display:block;color:#9CA3AF;font-size:0.78rem;text-decoration:underline;
+      cursor:pointer;padding:6px;}
+
+    .garantia{display:flex;align-items:center;gap:14px;background:var(--verde-claro);
+      border-radius:12px;padding:16px 20px;margin-bottom:32px;}
+    .garantia p{font-size:0.85rem;color:var(--verde);line-height:1.5;}
+
+    footer{background:#0F2040;padding:24px;text-align:center;}
+    footer p{font-size:0.75rem;color:rgba(255,255,255,0.3);}
+  </style>
+</head>
+<body>
+
+  <div class="topo">
+    <p>SAIANE · Sistema de Acompanhamento Individualizado para Alunos com NEE</p>
+  </div>
+
+  <section class="hero">
+    <div class="hero-tag">⚠️ Espera — uma última oferta</div>
+    <h1>Tudo bem! Mas antes de ir,<br>veja essa <em>oferta especial</em><br>só para você</h1>
+    <p>Entendemos que o kit completo talvez não seja o momento agora. Por isso criamos uma opção menor — os 2 materiais que mais complementam o que você já tem.</p>
+  </section>
+
+  <div class="main">
+
+    <div class="entendemos">
+      <h3>Você já tem o essencial. E agora?</h3>
+      <p>Com a Ficha de Mapeamento e o PDI em mãos, você consegue estruturar o acompanhamento. Mas quando chegar a hora de <strong>monitorar a evolução</strong> e <strong>comunicar com a família</strong> — você vai precisar de mais ferramentas. Essa oferta garante exatamente isso, pelo menor preço possível.</p>
+    </div>
+
+    <div class="oferta-ds">
+      <div class="ds-tag">💛 Oferta especial · Só agora</div>
+      <h2>Kit Complementar SAIANE</h2>
+
+      <div class="itens-ds">
+        <div class="item-ds">
+          <div class="item-ds-icon">📊</div>
+          <div>
+            <strong>Planilha de Monitoramento de Metas</strong>
+            <span>Painel automático com indicadores de evolução por área. Tudo calculado, você só preenche.</span>
+          </div>
+        </div>
+        <div class="item-ds">
+          <div class="item-ds-icon">💬</div>
+          <div>
+            <strong>Protocolo de Comunicação com Famílias</strong>
+            <span>4 roteiros completos de reunião, modelos de mensagem prontos e como lidar com situações difíceis.</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="preco-de-ds">De R$ 97,00</p>
+      <div class="preco-por-ds">R$ 37</div>
+      <p class="preco-label-ds">pagamento único · acesso imediato</p>
+
+      <!-- SUBSTITUA PELO LINK DO DOWNSELL NA KIWIFY -->
+      <a href="https://pay.kiwify.com.br/SEU-LINK-DOWNSELL" class="btn-ds">
+        ✅ Quero o Kit Complementar por R$ 37
+      </a>
+      <a href="obrigado.html" class="btn-nao-ds">Não, quero acessar só o que comprei</a>
+    </div>
+
+    <div class="garantia">
+      <span style="font-size:1.5rem;">🛡️</span>
+      <p><strong>Garantia de 7 dias.</strong> Se não gostar por qualquer motivo, devolvemos 100% do valor. Sem perguntas.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 SAIANE · Produto digital com entrega imediata · saiane.vercel.app</p>
+  </footer>
+
+</body>
+</html>

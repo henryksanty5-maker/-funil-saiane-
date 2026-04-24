@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Espera! Você está deixando o kit completo para trás — SAIANE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --azul:#1A3660; --azul2:#2756A0; --dourado:#D4972A; --dourado-claro:#F0B847;
+      --verde:#2D7A4F; --verde-claro:#E8F5EE; --creme:#FDF8F0; --cinza:#6B7280;
+      --cinza-claro:#F3F4F6; --branco:#FFFFFF; --texto:#111827; --laranja:#EA580C;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;color:var(--texto);background:var(--branco);}
+
+    /* TOP URGENCY BAR */
+    .urgency-bar{
+      background:var(--laranja);padding:12px 24px;text-align:center;
+    }
+    .urgency-bar p{color:var(--branco);font-size:0.9rem;font-weight:600;}
+    .urgency-bar span{color:#FFD700;}
+
+    /* HERO */
+    .hero{background:var(--azul);padding:60px 24px 48px;text-align:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;
+      background:radial-gradient(circle,rgba(39,86,160,0.4) 0%,transparent 70%);
+      top:-200px;right:-150px;pointer-events:none;}
+    .hero-tag{display:inline-block;background:rgba(234,88,12,0.2);border:1px solid var(--laranja);
+      color:#FCA47A;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+      padding:6px 18px;border-radius:100px;margin-bottom:20px;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,3rem);
+      color:var(--branco);line-height:1.2;max-width:720px;margin:0 auto 16px;}
+    .hero h1 em{color:var(--dourado-claro);font-style:normal;}
+    .hero p{font-size:1.05rem;color:rgba(255,255,255,0.72);max-width:580px;margin:0 auto 0;line-height:1.7;}
+
+    /* MAIN LAYOUT */
+    .main{max-width:860px;margin:0 auto;padding:56px 24px;}
+
+    /* O QUE VOCÊ JÁ TEM */
+    .ja-tem{background:var(--verde-claro);border:1px solid rgba(45,122,79,0.25);
+      border-radius:16px;padding:28px 32px;margin-bottom:40px;}
+    .ja-tem h3{font-size:0.85rem;font-weight:700;color:var(--verde);letter-spacing:1.5px;
+      text-transform:uppercase;margin-bottom:14px;}
+    .item-check{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:0.92rem;color:var(--texto);}
+    .item-check::before{content:'✓';color:var(--verde);font-weight:700;flex-shrink:0;}
+
+    /* O QUE ESTÁ FALTANDO */
+    .faltando{background:var(--creme);border:1px solid #E8E0D0;border-radius:16px;
+      padding:28px 32px;margin-bottom:40px;}
+    .faltando h3{font-size:0.85rem;font-weight:700;color:var(--dourado);letter-spacing:1.5px;
+      text-transform:uppercase;margin-bottom:14px;}
+    .item-lock{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;}
+    .lock-icon{width:32px;height:32px;background:var(--dourado);border-radius:8px;
+      display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+    .lock-text strong{display:block;font-size:0.92rem;font-weight:600;color:var(--azul);margin-bottom:2px;}
+    .lock-text span{font-size:0.82rem;color:var(--cinza);line-height:1.5;}
+
+    /* OFERTA */
+    .oferta-box{background:var(--azul);border-radius:20px;padding:40px 36px;text-align:center;margin-bottom:40px;}
+    .oferta-tag{display:inline-block;background:rgba(240,184,71,0.15);border:1px solid var(--dourado-claro);
+      color:var(--dourado-claro);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+      padding:5px 14px;border-radius:100px;margin-bottom:20px;}
+    .oferta-box h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--branco);margin-bottom:8px;}
+    .preco-de{font-size:0.95rem;color:rgba(255,255,255,0.4);text-decoration:line-through;margin-bottom:4px;}
+    .preco-por{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;
+      color:var(--dourado-claro);line-height:1;}
+    .preco-label{font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:28px;margin-top:4px;}
+    .economia-badge{display:inline-block;background:rgba(45,122,79,0.25);border:1px solid rgba(45,122,79,0.4);
+      color:#6EE7A0;font-size:0.82rem;font-weight:700;padding:5px 14px;border-radius:100px;margin-bottom:28px;}
+
+    .btn-sim{display:block;background:linear-gradient(135deg,var(--dourado) 0%,var(--dourado-claro) 100%);
+      color:var(--azul);font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.05rem;
+      padding:18px 32px;border-radius:14px;text-decoration:none;
+      box-shadow:0 6px 30px rgba(212,151,42,0.45);margin-bottom:16px;
+      transition:transform 0.15s,box-shadow 0.15s;}
+    .btn-sim:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(212,151,42,0.6);}
+    .btn-nao{display:block;color:rgba(255,255,255,0.3);font-size:0.8rem;text-decoration:underline;
+      cursor:pointer;padding:8px;transition:color 0.15s;}
+    .btn-nao:hover{color:rgba(255,255,255,0.5);}
+
+    /* ITENS DO UPSELL */
+    .itens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;
+      text-align:left;margin:24px 0 28px;}
+    .item-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);
+      border-radius:12px;padding:16px;}
+    .item-card .num{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--dourado-claro);
+      opacity:0.4;font-weight:700;margin-bottom:4px;}
+    .item-card h4{font-size:0.88rem;font-weight:700;color:var(--branco);margin-bottom:4px;}
+    .item-card p{font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.5;}
+
+    /* GARANTIA */
+    .garantia{display:flex;align-items:center;gap:16px;background:var(--cinza-claro);
+      border-radius:14px;padding:20px 24px;margin-bottom:40px;}
+    .garantia-icon{font-size:2rem;flex-shrink:0;}
+    .garantia h4{font-size:0.95rem;font-weight:700;color:var(--azul);margin-bottom:4px;}
+    .garantia p{font-size:0.85rem;color:var(--cinza);line-height:1.5;}
+
+    footer{background:#0F2040;padding:28px 24px;text-align:center;}
+    footer p{font-size:0.75rem;color:rgba(255,255,255,0.3);}
+  </style>
+</head>
+<body>
+
+  <div class="urgency-bar">
+    <p>⏰ Essa oferta aparece <span>apenas uma vez</span> — ela não estará disponível depois</p>
+  </div>
+
+  <section class="hero">
+    <div class="hero-tag">🎉 Parabéns pela compra!</div>
+    <h1>Você comprou o essencial.<br>Que tal levar o <em>kit completo</em><br>com 70% de desconto?</h1>
+    <p>Seu pagamento foi confirmado. Antes de acessar seus materiais, veja essa oferta exclusiva que preparamos para você — disponível só agora.</p>
+  </section>
+
+  <div class="main">
+
+    <!-- O QUE VOCÊ JÁ TEM -->
+    <div class="ja-tem">
+      <h3>✅ O que você já tem</h3>
+      <div class="item-check">Ficha de Mapeamento Inicial completa</div>
+      <div class="item-check">PDI editável com 4 áreas de metas</div>
+    </div>
+
+    <!-- O QUE ESTÁ FALTANDO -->
+    <div class="faltando">
+      <h3>🔒 O que você ainda não tem — e que vai precisar</h3>
+      <div class="item-lock">
+        <div class="lock-icon">📊</div>
+        <div class="lock-text">
+          <strong>Planilha de Monitoramento de Metas</strong>
+          <span>Painel automático com indicadores de evolução por área — sem precisar calcular nada.</span>
+        </div>
+      </div>
+      <div class="item-lock">
+        <div class="lock-icon">📋</div>
+        <div class="lock-text">
+          <strong>Banco de Relatórios Prontos</strong>
+          <span>8 modelos completos: bimestral, reunião com família, encaminhamento, transferência e mais.</span>
+        </div>
+      </div>
+      <div class="item-lock">
+        <div class="lock-icon">💬</div>
+        <div class="lock-text">
+          <strong>Protocolo de Comunicação com Famílias</strong>
+          <span>4 roteiros de reunião, modelos de mensagem e guia para situações difíceis com famílias.</span>
+        </div>
+      </div>
+      <div class="item-lock">
+        <div class="lock-icon">🏛️</div>
+        <div class="lock-text">
+          <strong>Painel de Gestão Municipal</strong>
+          <span>Visão consolidada de toda a rede — indispensável para secretarias e coordenações.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- OFERTA -->
+    <div class="oferta-box">
+      <div class="oferta-tag">⚡ Oferta única — só aparece agora</div>
+      <h2>SAIANE — Kit Completo</h2>
+      <p class="preco-de">De R$ 197,00</p>
+      <div class="preco-por">R$ 67</div>
+      <p class="preco-label">pagamento único · apenas uma vez · nunca mais por esse preço</p>
+      <div class="economia-badge">💰 Você economiza R$ 130</div>
+
+      <div class="itens-grid">
+        <div class="item-card">
+          <div class="num">03</div>
+          <h4>Planilha de Monitoramento</h4>
+          <p>Painel automático com 6 abas completas</p>
+        </div>
+        <div class="item-card">
+          <div class="num">04</div>
+          <h4>Banco de Relatórios</h4>
+          <p>8 modelos prontos para qualquer situação</p>
+        </div>
+        <div class="item-card">
+          <div class="num">05</div>
+          <h4>Protocolo com Famílias</h4>
+          <p>Roteiros, modelos e termo LGPD</p>
+        </div>
+        <div class="item-card">
+          <div class="num">06</div>
+          <h4>Painel Municipal</h4>
+          <p>Gestão completa para secretarias</p>
+        </div>
+      </div>
+
+      <!-- SUBSTITUA PELO LINK DO UPSELL NA KIWIFY -->
+      <a href="https://pay.kiwify.com.br/SEU-LINK-UPSELL" class="btn-sim">
+        ✅ Sim! Quero o kit completo por R$ 67 →
+      </a>
+      <a href="obrigado.html" class="btn-nao">Não, prefiro ficar só com o básico</a>
+    </div>
+
+    <!-- GARANTIA -->
+    <div class="garantia">
+      <div class="garantia-icon">🛡️</div>
+      <div>
+        <h4>Garantia de 7 dias inclusa</h4>
+        <p>Se por qualquer motivo não ficar satisfeito(a), devolvemos 100% do valor. Sem perguntas.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 SAIANE · Este é um produto digital com entrega imediata após confirmação do pagamento.</p>
+  </footer>
+
+</body>
+</html>
